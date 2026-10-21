@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASANKA CAR AUDIO - Grand Opening Balangoda</title>
+    
+    <!-- Open Graph Meta Tags for WhatsApp Preview Image -->
+    <meta property="og:title" content="GRAND OPENING - ASANKA CAR AUDIO BALANGODA 🔊">
+    <meta property="og:description" content="අපගේ නව ශාඛාව විවෘත වන දින සියලුම සේවාවන් නොමිලේ සහ 20% ක විශේෂ වට්ටම් සමඟින්!">
+    <meta property="og:image" content="https://i.ibb.co/6R7k69pC/GOI.jpg">
+    <meta property="og:url" content="https://tinyurl.com/Asanka-CAR-Audio">
+    <meta property="og:type" content="website">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Noto+Sans+Sinhala:wght@400;600;700;800&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Canvas Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#090a0f',
+                        cardBg: '#12151e',
+                        neonOrange: '#ff6b00',
+                        neonBlue: '#00f0ff',
+                        accentGold: '#ffd700',
+                    },
+                    fontFamily: {
+                        orbitron: ['Orbitron', 'sans-serif'],
+                        rajdhani: ['Rajdhani', 'sans-serif'],
+                        sinhala: ['Noto Sans Sinhala', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'pulse-glow': 'pulseGlow 2s infinite',
+                        'beat': 'beat 0.8s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-8px)' },
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { boxShadow: '0 0 20px rgba(255, 107, 0, 0.5)' },
+                            '50%': { boxShadow: '0 0 40px rgba(255, 107, 0, 0.9), 0 0 60px rgba(0, 240, 255, 0.6)' },
+                        },
+                        beat: {
+                            '0%, 100%': { transform: 'scale(1)' },
+                            '50%': { transform: 'scale(1.05)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #090a0f;
+            color: #ffffff;
+            font-family: 'Noto Sans Sinhala', 'Rajdhani', sans-serif;
+            overflow-x: hidden;
+        }
+        .neon-text-orange {
+            text-shadow: 0 0 12px rgba(255, 107, 0, 0.8), 0 0 25px rgba(255, 107, 0, 0.5);
+        }
+        .neon-text-blue {
+            text-shadow: 0 0 12px rgba(0, 240, 255, 0.8), 0 0 25px rgba(0, 240, 255, 0.5);
+        }
+        .glass-card {
+            background: rgba(18, 21, 30, 0.88);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 107, 0, 0.35);
+        }
+        .glass-card:hover {
+            border-color: rgba(255, 107, 0, 0.8);
+        }
+        .speaker-ring {
+            box-shadow: 0 0 35px rgba(255, 107, 0, 0.5), inset 0 0 25px rgba(0, 240, 255, 0.4);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-between relative bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gray-900 via-darkBg to-black">
+
+    <!-- Local MP3 Audio Element -->
+    <audio id="bgAudio" loop preload="auto">
+        <source src="music.mp3" type="audio/mpeg">
+        ඔබගේ බ්‍රව්සරය ඔස්සේ ශ්‍රව්‍ය (Audio) පහසුකම ක්‍රියාත්මක කළ නොහැක.
+    </audio>
+
+    <!-- Welcome Modal for Music & Animation Activation -->
+    <div id="welcomeModal" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl flex items-center justify-center p-4">
+        <div class="glass-card p-6 sm:p-8 rounded-3xl max-w-sm w-full text-center border-2 border-neonOrange shadow-2xl space-y-5 animate-pulse-glow">
+            <div class="w-20 h-20 bg-neonOrange/20 rounded-full flex items-center justify-center mx-auto text-neonOrange text-3xl border border-neonOrange/50 shadow-[0_0_25px_rgba(255,107,0,0.6)]">
+                <i class="fa-solid fa-crown animate-bounce"></i>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold font-orbitron text-white">ASANKA CAR AUDIO</h3>
+                <p class="text-xs text-neonBlue font-orbitron tracking-widest mt-1">BALANGODA BRANCH</p>
+            </div>
+            <p class="text-xs text-gray-300 leading-relaxed">උත්සව සජීවීකරණය සහ සිනමාත්මක සංගීතය සමඟ ආරාධනා පත්‍රය විවෘත කිරීමට පහත බොත්තම ඔබන්න.</p>
+            <button onclick="startExperience()" class="w-full bg-gradient-to-r from-neonOrange via-amber-500 to-neonOrange hover:from-amber-600 hover:to-neonOrange text-black font-extrabold py-3.5 px-6 rounded-xl text-sm shadow-xl shadow-neonOrange/50 transition-all font-orbitron uppercase tracking-wider transform hover:scale-105 active:scale-95 cursor-pointer">
+                🎬 OPEN INVITATION 🎬
+            </button>
+        </div>
+    </div>
+
+    <!-- Background Grid Effect -->
+    <div class="fixed inset-0 pointer-events-none opacity-10 bg-[linear-gradient(to_right,#1f2937_1px,transparent_1px),linear-gradient(to_bottom,#1f2937_1px,transparent_1px)] bg-[size:30px_30px]"></div>
+
+    <!-- Sound Toggle Button -->
+    <div class="fixed top-4 right-4 z-40">
+        <button id="audioToggleBtn" onclick="toggleAudio()" class="flex items-center gap-2 bg-black/75 border border-neonOrange/70 hover:border-neonOrange text-white px-4 py-2 rounded-full backdrop-blur-md shadow-lg transition-all duration-300 cursor-pointer">
+            <i id="audioIcon" class="fa-solid fa-volume-high text-neonOrange"></i>
+            <span id="audioText" class="text-xs font-semibold tracking-wider font-orbitron">MUSIC ON</span>
+        </button>
+    </div>
+
+    <!-- Main Container -->
+    <main class="w-full max-w-lg px-4 py-8 z-10 flex flex-col items-center gap-6 my-auto">
+
+        <!-- Header -->
+        <header class="text-center w-full animate-float">
+            <div class="inline-block px-4 py-1.5 rounded-full bg-neonOrange/20 border border-neonOrange/60 text-neonOrange text-xs font-bold tracking-widest uppercase mb-3 font-orbitron shadow-[0_0_25px_rgba(255,107,0,0.5)]">
+                🏆 GRAND OPENING INVITATION
+            </div>
+            <div class="relative py-2">
+                <h1 class="text-2xl sm:text-3xl font-black font-orbitron tracking-wider text-white uppercase">
+                    ASANKA
+                </h1>
+                <h2 class="text-3xl sm:text-4xl font-black font-orbitron tracking-tight text-neonOrange neon-text-orange uppercase">
+                    CAR AUDIO
+                </h2>
+                <div class="text-base font-extrabold tracking-[0.4em] text-neonBlue font-orbitron uppercase mt-1">
+                    BALANGODA
+                </div>
+            </div>
+            <p class="text-gray-300 text-sm mt-3 px-4 font-medium leading-relaxed">
+                ඔබේ රථයට ඉහළම ප්‍රමිතියේ Audio System, Lighting සහ Auto Electrical සේවාවන් දැන් බලන්ගොඩින්!
+            </p>
+        </header>
+
+        <!-- Epic Subwoofer / Beat Animation Graphic -->
+        <div class="relative w-48 h-48 sm:w-56 sm:h-56 my-2 flex items-center justify-center">
+            <div class="absolute inset-0 rounded-full border-2 border-neonOrange/50 animate-ping opacity-30"></div>
+            <div class="w-full h-full rounded-full bg-gradient-to-br from-gray-900 to-black p-3 speaker-ring flex items-center justify-center border border-gray-800 shadow-2xl animate-beat">
+                <div class="w-full h-full rounded-full border-4 border-dashed border-gray-800 flex items-center justify-center relative overflow-hidden bg-[radial-gradient(circle,_var(--tw-gradient-stops))] from-gray-800 via-gray-950 to-black">
+                    <div class="text-center z-10">
+                        <i class="fa-solid fa-compact-disc text-6xl text-neonOrange animate-spin" style="animation-duration: 5s;"></i>
+                        <div class="font-orbitron font-bold text-xs text-neonBlue mt-2 tracking-widest">EPIC BASS</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Highlight Special Offer Banner -->
+        <section class="w-full bg-gradient-to-r from-neonOrange/25 via-amber-500/25 to-neonBlue/25 border-2 border-neonOrange rounded-2xl p-4 text-center shadow-[0_0_30px_rgba(255,107,0,0.4)] animate-pulse-glow">
+            <div class="text-xs font-orbitron tracking-widest text-accentGold uppercase font-bold mb-1">✨ OPENING DAY SPECIAL ✨</div>
+            <div class="text-lg sm:text-xl font-black text-white font-sinhala">විවෘත කරන දින සියලුම සේවාවන් <span class="text-neonOrange">නොමිලේ!</span></div>
+            <div class="text-sm font-bold text-neonBlue mt-1">+ විශේෂ <span class="text-accentGold text-base">20% ක වට්ටම්</span> රැසක්ද හිමිවේ!</div>
+        </section>
+
+        <!-- Countdown / Opened Section -->
+        <section class="w-full glass-card p-5 rounded-2xl text-center shadow-2xl relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-neonOrange via-neonBlue to-accentGold"></div>
+            
+            <!-- Before Zero -->
+            <div id="countdownBox">
+                <h3 class="text-xs font-bold tracking-widest font-orbitron text-gray-400 uppercase mb-3 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-clock text-neonOrange"></i> Opening Countdown
+                </h3>
+                <div class="grid grid-cols-4 gap-2 font-orbitron">
+                    <div class="bg-black/70 p-2.5 rounded-xl border border-gray-800">
+                        <span id="days" class="text-2xl sm:text-3xl font-black text-neonOrange">00</span>
+                        <span class="block text-[10px] text-gray-400 font-sans mt-0.5">දින</span>
+                    </div>
+                    <div class="bg-black/70 p-2.5 rounded-xl border border-gray-800">
+                        <span id="hours" class="text-2xl sm:text-3xl font-black text-white">00</span>
+                        <span class="block text-[10px] text-gray-400 font-sans mt-0.5">පැය</span>
+                    </div>
+                    <div class="bg-black/70 p-2.5 rounded-xl border border-gray-800">
+                        <span id="minutes" class="text-2xl sm:text-3xl font-black text-white">00</span>
+                        <span class="block text-[10px] text-gray-400 font-sans mt-0.5">මිනිත්තු</span>
+                    </div>
+                    <div class="bg-black/70 p-2.5 rounded-xl border border-gray-800">
+                        <span id="seconds" class="text-2xl sm:text-3xl font-black text-neonBlue">00</span>
+                        <span class="block text-[10px] text-gray-400 font-sans mt-0.5">තත්පර</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- After Zero (Opened State) -->
+            <div id="openedBox" class="hidden py-3">
+                <div class="text-accentGold font-orbitron text-xs tracking-widest uppercase mb-1">🎉 CELEBRATION TIME 🎉</div>
+                <div class="text-2xl sm:text-3xl font-black font-orbitron text-neonOrange neon-text-orange uppercase animate-bounce">
+                    WE ARE OPEN NOW!
+                </div>
+                <p class="text-xs text-gray-200 mt-2 font-sinhala">අපගේ නව ශාඛාව දැන් ඔබ වෙනුවෙන් විවෘතයි! පැමිණෙන්න.</p>
+            </div>
+        </section>
+
+        <!-- Event Details -->
+        <section class="w-full space-y-3">
+            <div class="glass-card p-4 rounded-xl flex items-center gap-4 border-l-4 border-l-neonOrange">
+                <div class="w-12 h-12 rounded-xl bg-neonOrange/15 border border-neonOrange/40 flex items-center justify-center text-neonOrange text-xl flex-shrink-0">
+                    <i class="fa-solid fa-calendar-day"></i>
+                </div>
+                <div class="flex-1">
+                    <div class="text-xs font-semibold text-gray-400">දිනය සහ වේලාව</div>
+                    <div class="font-bold text-white text-base">2026 ඔක්තෝබර් මස 23 වනදා</div>
+                    <div class="text-xs text-neonOrange font-medium">පෙ.ව. 06:06 ට යෙදෙන සුබ මොහොතින්</div>
+                </div>
+            </div>
+
+            <div class="glass-card p-4 rounded-xl flex items-center gap-4 border-l-4 border-l-neonBlue">
+                <div class="w-12 h-12 rounded-xl bg-neonBlue/15 border border-neonBlue/40 flex items-center justify-center text-neonBlue text-xl flex-shrink-0">
+                    <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <div class="flex-1">
+                    <div class="text-xs font-semibold text-gray-400">ස්ථානය</div>
+                    <div class="font-bold text-white text-base">ASANKA CAR AUDIO</div>
+                    <div class="text-xs text-gray-300">No. 72, Haputale Road, Balangoda</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Action Buttons -->
+        <section class="w-full grid grid-cols-2 gap-3 pt-2">
+            <a href="https://maps.app.goo.gl/pTGcko29pw2X4jFm7?g_st=aw" target="_blank" class="col-span-2 glass-card hover:bg-neonOrange/25 border-neonOrange/70 py-3.5 px-4 rounded-xl flex items-center justify-center gap-2 text-white font-bold text-sm shadow-xl transition-all active:scale-95">
+                <i class="fa-solid fa-map-location-dot text-neonOrange text-lg"></i>
+                <span>Google Maps මඟින් පැමිණෙන්න</span>
+            </a>
+            <a href="tel:0715157333" class="glass-card hover:bg-white/10 py-3 px-4 rounded-xl flex items-center justify-center gap-2 text-white font-semibold text-xs transition-all active:scale-95">
+                <i class="fa-solid fa-phone text-neonBlue text-base"></i>
+                <span>0715157333</span>
+            </a>
+            <a href="https://wa.me/94715157333?text=Hi%20Asanka%20Car%20Audio,%20I'm%20coming%20for%20the%20Balangoda%20Branch%20Opening!" target="_blank" class="glass-card hover:bg-emerald-500/25 border-emerald-500/50 py-3 px-4 rounded-xl flex items-center justify-center gap-2 text-white font-semibold text-xs transition-all active:scale-95">
+                <i class="fa-brands fa-whatsapp text-emerald-400 text-base"></i>
+                <span>WhatsApp කරන්න</span>
+            </a>
+        </section>
+
+        <!-- RSVP Section -->
+        <section class="w-full glass-card p-4 rounded-xl text-center space-y-3">
+            <h5 class="text-xs font-semibold text-gray-300">ඔබත් මෙම උත්සවයට සහභාගී වෙනවාද?</h5>
+            <div id="rsvpButtons" class="flex gap-2 justify-center">
+                <button onclick="submitRSVP('Yes')" class="flex-1 bg-neonOrange/20 hover:bg-neonOrange text-neonOrange hover:text-black border border-neonOrange/70 font-bold py-2 px-3 rounded-lg text-xs transition-all cursor-pointer">
+                    👍 ඔවු, මම එනවා!
+                </button>
+                <button onclick="submitRSVP('Maybe')" class="flex-1 bg-gray-800 hover:bg-gray-700 text-gray-300 font-bold py-2 px-3 rounded-lg text-xs transition-all cursor-pointer">
+                    🤔 බලමු
+                </button>
+            </div>
+            <div id="rsvpFeedback" class="hidden text-xs text-neonBlue font-bold animate-pulse py-2 bg-black/60 rounded-xl border border-neonBlue/50">
+                🎉 ස්තූතියි! ඔබේ පැමිණීම සටහන් කරගත්තා. එදිනට හමුවෙමු!
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full text-center py-6 text-[11px] text-gray-500 z-10 border-t border-gray-900/90 bg-black/50 backdrop-blur-md">
+        <p>© 2026 ASANKA CAR AUDIO - BALANGODA. ALL RIGHTS RESERVED.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Countdown
+        const targetDate = new Date("Oct 23, 2026 06:06:00").getTime();
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+            
+            if (difference > 0) {
+                document.getElementById('days').innerText = Math.floor(difference / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+                document.getElementById('hours').innerText = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+                document.getElementById('minutes').innerText = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+                document.getElementById('seconds').innerText = Math.floor((difference % (1000 * 60)) / 1000).toString().padStart(2, '0');
+            } else {
+                // When countdown hits zero or past target date
+                document.getElementById('countdownBox').classList.add('hidden');
+                document.getElementById('openedBox').classList.remove('hidden');
+            }
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Audio & Experience Control
+        const bgAudio = document.getElementById('bgAudio');
+        let isPlaying = false;
+
+        function startExperience() {
+            const modal = document.getElementById('welcomeModal');
+            modal.style.opacity = '0';
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 300);
+
+            bgAudio.volume = 1.0;
+            bgAudio.play().then(() => {
+                isPlaying = true;
+                document.getElementById('audioText').innerText = "MUSIC ON";
+                document.getElementById('audioIcon').className = "fa-solid fa-volume-high text-neonOrange";
+                triggerOpeningConfetti();
+            }).catch(error => {
+                console.log("Audio playback failed:", error);
+            });
+        }
+
+        function toggleAudio() {
+            if (isPlaying) {
+                bgAudio.pause();
+                isPlaying = false;
+                document.getElementById('audioText').innerText = "MUSIC OFF";
+                document.getElementById('audioIcon').className = "fa-solid fa-volume-xmark text-gray-400";
+            } else {
+                bgAudio.play().then(() => {
+                    isPlaying = true;
+                    document.getElementById('audioText').innerText = "MUSIC ON";
+                    document.getElementById('audioIcon').className = "fa-solid fa-volume-high text-neonOrange";
+                }).catch(e => {
+                    console.log("Toggle play error:", e);
+                });
+            }
+        }
+
+        function triggerOpeningConfetti() {
+            confetti({
+                particleCount: 150,
+                spread: 100,
+                origin: { y: 0.6 }
+            });
+        }
+
+        function submitRSVP(response) {
+            document.getElementById('rsvpButtons').classList.add('hidden');
+            const feedback = document.getElementById('rsvpFeedback');
+            if(response === 'Yes') {
+                feedback.innerHTML = '🎉 නියමයි! ඔබේ පැමිණීම සටහන් විය. එදිනට හමුවෙමු!';
+                confetti({ particleCount: 100, spread: 70, origin: { y: 0.8 } });
+            } else {
+                feedback.innerHTML = '👍 ස්තූතියි! වේලාවක් ලැබුණොත් අනිවාර්යයෙන්ම එන්න!';
+            }
+            feedback.classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
